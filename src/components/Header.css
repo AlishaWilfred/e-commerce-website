@@ -1,0 +1,7 @@
+@media (max-width:468px) {
+    .header{
+       width: 100%;
+       display: flex;
+       background-color: black;
+    }   
+   }
