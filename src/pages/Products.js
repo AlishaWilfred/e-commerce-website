@@ -20,6 +20,7 @@ export default function Products({
   addToCart,
   addToWishlist,
   like,
+  Toaster
 }) {
   const allcategories = ["all", ...new Set(data.map((item) => item.category))];
 
@@ -94,9 +95,11 @@ export default function Products({
             products={products}
             addToCart={addToCart}
             addToWishlist={addToWishlist}
+            Toaster={Toaster}
             like={like}
           />
         </div>
+       
       </div>
     </div>
   );

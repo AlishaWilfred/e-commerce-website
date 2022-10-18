@@ -17,6 +17,7 @@ import { FaShippingFast } from "react-icons/fa";
 import {BiSupport} from "react-icons/bi"
 import { BsArrowReturnLeft } from "react-icons/bs";
 import {RiSecurePaymentFill} from "react-icons/ri"
+import toast, { Toaster } from "react-hot-toast";
 
 
 export default function Home({products,addToCart}) {
@@ -59,6 +60,7 @@ icon:<BiSupport/>,
 }
 
 ]
+
 
   return (
     <>
@@ -157,6 +159,7 @@ breakpoints={{
           </div>
           </div>
         </div>
+    
      </SwiperSlide>
 
       </div>

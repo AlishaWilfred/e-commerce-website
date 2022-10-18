@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import React from "react";
 import Pagination from "./Pagination";
 import {FaHeart, FaSearch} from "react-icons/fa"
-export default function Product({ products, addToCart,addToWishlist }) {
+export default function Product({ products, addToCart,addToWishlist,Toaster }) {
   const [currentpage, setCurrentPage] = React.useState(1);
   const [postsperpage, setPostsperPage] = React.useState(5);
 const [search,setSearch]=React.useState("")
@@ -79,6 +79,7 @@ const searchedProduct=products.filter(item=>{
                    }}
                     class="text-md"/>
                     </button>
+                    <Toaster/>
                 </div>
               </div>
               <div class="mt-6 space-y-2 m-3 ">

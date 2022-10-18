@@ -2,12 +2,17 @@ import React from 'react'
 import {Link} from "react-router-dom"
 import Product from './Product'
 import {AiOutlineArrowLeft,AiOutlineClose} from "react-icons/ai"
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function Wishlist({wishlist,addToCart,setWishlist}) {
 
     const removeWishlist=(product)=>{
         setWishlist(wishlist.filter(item=>item.id!=product.id))
+        toast.error("item removed from the wishlist")
     }
+
+
+
   return (
     <>
     <div>
@@ -39,6 +44,7 @@ export default function Wishlist({wishlist,addToCart,setWishlist}) {
         {
     wishlist.map(item=>{
         return(
+            <>
             <div class="flex sm:justify-center w-full border-2 sm:m-4 sm:rounded-xl sm:w-1/5 md:w-1/3 lg:w-1/5  ">
                 
              
@@ -47,7 +53,7 @@ export default function Wishlist({wishlist,addToCart,setWishlist}) {
               <AiOutlineClose  onClick={()=>removeWishlist(item)}
               class="text-gray-500 sm:m-2 hidden sm:block sm:hover:text-black" />
                 </div>
-                <img class="sm:rounded-xl  sm:w-[200px] sm:ml-8 object-cover lg:ml-0 xl:ml-8  w-[150px] h-[170px]  shadow-sm "src={item.image} width="200px"></img>
+                <img alt="" class="sm:rounded-xl  sm:w-[200px] sm:ml-8 object-cover lg:ml-0 xl:ml-8  w-[150px] h-[170px]  shadow-sm "src={item.image} width="200px"></img>
                 <div class="sm:space-y-3 space-y-2 flex flex-col py-2 ml-4  ">
                     <h1 class="sm:text-lg text-md sm:m-2 font-medium">{item.title}</h1>
                     <div class="flex justify-between sm:flex-row xl:flex-row flex-col lg:flex-col ">
@@ -58,6 +64,7 @@ export default function Wishlist({wishlist,addToCart,setWishlist}) {
                     <span onClick={()=>addToCart(item)}
                     class="sm:m-2 border-none font-medium text-red-600 sm:shadow-md sm:w-full sm:flex sm:justify-center sm:bg-white sm:text-red-600">
                         Move To Cart</span>
+                      
                         <span   onClick={()=>removeWishlist(item)}
                          class="  sm:hidden font-medium hover:underline  text-red-600">Delete</span>
                      </div>
@@ -67,6 +74,8 @@ export default function Wishlist({wishlist,addToCart,setWishlist}) {
                 </div>
 
                 </div>
+                <Toaster/>
+                </>
         )
     })
     
