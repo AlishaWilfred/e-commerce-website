@@ -23,6 +23,7 @@ export default function Layout() {
    else{
 
        setCartItem([...cartItem,{...product,quantity:1}])
+       toast.success("item added to the cart")
    }
 
   }
@@ -48,7 +49,7 @@ export default function Layout() {
    const productExist=wishlist.find(item=>item.id===product.id)
    if(productExist){
    
-    toast.success("Item is already in  the wishlist!!")
+    toast.error("Item already exists!!")
 
       
    }
@@ -68,7 +69,7 @@ toast.success("item added to the wishlist!")
       removeCartItem={removeCartItem} decreaseCartitem={decreaseCartitem} addToWishlist={addToWishlist}
       wishlist={wishlist} setWishlist={setWishlist} like={like} Toaster={Toaster}
       />
-      
+      <Toaster/>
       
         <Footer/>
       </Router>

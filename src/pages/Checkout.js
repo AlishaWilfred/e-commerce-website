@@ -44,47 +44,54 @@ setInput({firstname:"",lastname:"",email:"",phone:"",city:"",state:"",zipcode:""
 
 <div className='sm:flex flex-col hidden'>
         <div className='border w-[700px] h-[500px] md:h-fit  m-12 rounded-md xl:flex sm:flex sm:flex-col'>
-            <div className='bg-gray-200 h-16 flex items-center'>
+            <div className='bg-gray-200 h-16 flex justify-between p-2 items-center'>
                 <h2 className='text-xl sm:text-2xl font-semibold m-3'>Shipping details</h2>
+                <span onClick={addDetails} className='text-3xl text-gray-600 m-2 cursor-pointer hover:text-blue-500'>+</span>
             </div>
-            <div className='flex justify-between m-6'>
+            {showPersonalDetails?(<>
+                <div className='flex justify-between m-6'>
                 <div className='flex flex-col'>
                 <label htmlFor='firstname'>First Name</label>
-                <input className='border-2 w-[250px] px-4 py-1' type="text" placeholder='' ></input>
+                <input className='border-2 w-[250px] px-4 py-1'  value={input.firstname} name="firstname" onChange={handleChange}type="text" placeholder='' ></input>
                 </div>
                 <div className='flex flex-col'>
                 <label htmlFor='lastname'>Last Name</label>
-                <input className='border-2 w-[250px] px-4 py-1' type="text" placeholder='' ></input>
+                <input className='border-2 w-[250px] px-4 py-1'  value={input.lastname} name="lastname" onChange={handleChange}type="text" placeholder='' ></input>
                 </div>
             </div>
             <div className='flex justify-between m-6'>
                 <div className='flex flex-col'>
                 <label htmlFor='phone'>Phone Number</label>
-                <input className='border-2 w-[250px] px-4 py-1' type="number" placeholder='' ></input>
+                <input className='border-2 w-[250px] px-4 py-1' value={input.phone} name="phone" onChange={handleChange} type="number" placeholder='' ></input>
                 </div>
                 <div className='flex flex-col'>
                 <label htmlFor='lastname'>Email Address</label>
-                <input className='border-2 w-[250px] px-4 py-1' type="text" placeholder='' ></input>
+                <input className='border-2 w-[250px] px-4 py-1' value={input.email} name="email" onChange={handleChange} type="text" placeholder='' ></input>
                 </div>
             </div>
             <div className='m-5'>
                 <label>Full Address</label>
-                <textarea name="address" rows="4" cols="85" className='border-2'></textarea>
+                <textarea name="address" rows="4" cols="85" value={input.address} onChange={handleChange} className='border-2'></textarea>
             </div>
             <div className='flex m-6 space-x-6'>
                 <div className='flex flex-col'>
                 <label htmlFor='city'>City</label>
-                <input type="text" className='border-2 w-[200px] px-3 py-1'></input>
+                <input type="text" className='border-2 w-[200px] px-3 py-1' value={input.city} name="city" onChange={handleChange}></input>
                 </div>
                 <div className='flex flex-col'>
                 <label htmlFor='state'>State</label>
-                <input type="text" className='border-2 w-[200px] px-3 py-1'></input>
+                <input type="text" className='border-2 w-[200px] px-3 py-1' value={input.state} name="state" onChange={handleChange}></input>
                 </div>
                 <div className='flex flex-col'>
                 <label htmlFor='code'>Zipcode</label>
-                <input type="number" className='border-2 w-[200px] px-3 py-1'></input>
+                <input type="number" className='border-2 w-[200px] px-3 py-1' value={input.zipcode} name="zipcode" onChange={handleChange}></input>
                 </div>
+                
             </div>
+            <button className='float-right m-2 px-2 py-1 bg-blue-500 text-white rounded-md' onClick={handleSubmit}>Submit</button>
+
+            </>):("")}
+       
           
         </div>
         </div>
@@ -146,7 +153,7 @@ setInput({firstname:"",lastname:"",email:"",phone:"",city:"",state:"",zipcode:""
          <div className={showShippingDetails?"block":"hidden"}>
             {
                 showShippingDetails&&(
-                    <div className='flex flex-col m-2 sm:hidden '>
+                    <div className='flex flex-col m-2 '>
                         <div>
                             {
                                 submit.map(s=>(
