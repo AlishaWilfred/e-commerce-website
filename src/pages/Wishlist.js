@@ -96,10 +96,10 @@ export default function Wishlist({ wishlist, addToCart, setWishlist }) {
                               <BsThreeDotsVertical />
                             </span>
                             {openModal === item.id ? (
-                              <div className="bg-white shadow-md rounded-md h-24 p-2 space-y-3 flex flex-col -top-20 border w-28 right-8 absolute float-right ">
+                              <div className="bg-white shadow-md rounded-md h-24 p-2 space-y-3 flex flex-col -top-0 border w-28 -right-28 absolute float-right ">
                                 <button
                                   onClick={() => addToCart(item)}
-                                  className="text-gray-700 hover:text-gray-900 hover:font-medium"
+                                  className="text-gray-700 hover:text-gray-900 hover:font-medium border-b pb-2"
                                 >
                                   Move to cart
                                 </button>
@@ -129,26 +129,13 @@ export default function Wishlist({ wishlist, addToCart, setWishlist }) {
                               </h3>
                               <span className="flex justify-between items-center gap-9">
                                 <p className="text-orange-600 font-bold">
-                                  ${item.price}
+                                  ${(item.price-(item.price*item.discount)/100)}
                                 </p>
-                                <p className="bg-pink-100 p-1 rounded-md w-fit">
-                                  Category:{item.category}
+                                <p className="bg-green-100 text-green-600 p-1 rounded-md w-fit">
+                                  {item.discount}% Off
                                 </p>
                               </span>
-                              {/* <div className="flex justify-center mt-4 gap-2 ">
-                                <button
-                                  onClick={() => addToCart(item)}
-                                  className="mt-3 text-center bg-red-600 hover:bg-red-700  text-white w-full py-1 rounded-md"
-                                >
-                                  Move to cart
-                                </button>
-                                <button
-                                  onClick={() => removeWishlist(item)}
-                                  className="mt-3 text-center text-red-600 hover:text-red-700  bg-white shadow-md w-full py-1 rounded-md"
-                                >
-                                  Delete
-                                </button>
-                              </div> */}
+                           
                             </div>
                           </div>
                         </div>
@@ -173,15 +160,16 @@ export default function Wishlist({ wishlist, addToCart, setWishlist }) {
                         <h2 className="text-lg font-medium text-gray-800 ">
                           {item.title}
                         </h2>
-                        <p className="bg-pink-100 p-1 rounded-md w-fit">
-                          Category: {item.category}
+                        <p className="bg-green-100 text-green-600 p-1 rounded-md w-fit">
+                           {item.discount}% Off
                         </p>
                       </div>
 
-                      <div className="ml-10">
-                        <span className="text-orange-600 font-bold">
-                          ${item.price}
+                      <div className="ml-10 gap-3 flex">
+                        <span className="text-orange-600 font-bold text-lg">
+                          ${(item.price-(item.price*item.discount)/100)}
                         </span>
+                        <span className="line-through mt-1 text-gray-700">{item.price}</span>
                       </div>
                       <div>
                         <span className="flex flex-col gap-3">
@@ -204,7 +192,7 @@ export default function Wishlist({ wishlist, addToCart, setWishlist }) {
                 </div>
               )}
 
-              <Toaster />
+              
             </div>
 
             <div class="sm:hidden flex flex-wrap justify-center w-full">

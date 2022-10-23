@@ -6,7 +6,7 @@ import {AiOutlineArrowLeft,AiOutlineClose} from "react-icons/ai"
 export default function Cart({cartItem,setCartItem,addToCart,removeCartItem,decreaseCartitem}) {
 
     const totalPrice=cartItem.reduce((acc,curr)=>{
-        return acc+(curr.quantity*curr.price);
+        return acc+(curr.quantity*(curr.price-(curr.price*curr.discount)/100));
     },0)
 
     const clearCart=()=>{
@@ -55,7 +55,7 @@ const url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRouRrngoGJet6up
                     </div>
                     </div>
                     <div class="sm:mt-14 mt-12 sm:flex-1 sm:ml-60 md:ml-32 ">
-                        <h3 class="text-md sm:text-lg ">Rs. {item.quantity*item.price}</h3>
+                        <h3 class="text-md sm:text-lg ">Rs. {(item.price-(item.price*item.discount)/100)}</h3>
                         </div>
                         <div class="sm:mt-12  absolute right-2 top-1 md:-top-8 sm:text-xl hover:text-red-500 cursor-pointer flex-1 md:ml-6">
                         <AiOutlineClose class="" onClick={()=>removeCartItem(item)}/>

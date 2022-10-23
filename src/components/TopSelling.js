@@ -15,7 +15,7 @@ export default function TopSelling() {
   return (
     <div class=' sm:mt-20 sm:m-16'>
       <h1 class="flex justify-center text-3xl font-extrabold mt-12 tracking-wider text-red-700">What's Trending</h1>
-        <div class='flex   sm:h-[300px] md:h-[350px]  mt-12  p-4 space-x-4'>
+        <div class='flex   sm:h-[300px] md:h-[350px]  mt-12  p-4 sm:p-0 space-x-4'>
    
    
              <Swiper

@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import React from "react";
 import Pagination from "./Pagination";
 import {FaHeart, FaSearch} from "react-icons/fa"
-export default function Product({ products, addToCart,addToWishlist,Toaster }) {
+export default function Product({ products, addToCart,addToWishlist }) {
   const [currentpage, setCurrentPage] = React.useState(1);
   const [postsperpage, setPostsperPage] = React.useState(5);
 const [search,setSearch]=React.useState("")
@@ -57,6 +57,7 @@ const searchedProduct=products.filter(item=>{
       <div class="flex flex-wrap sm:flex-wrap justify-center items-center sm:gap-x-10 lg:gap-x-8 space-y-3 md:space-y-3  lg:gap-y-5 ">
         {currentPage.
         map((item) => {
+          
           return (
             <div class=" border rounded-md w-56 lg:w-64 xl:w-1/5  sm:w-1/3 md:w-1/3 " key={item.id}>
               <div class="m-5 relative">
@@ -79,13 +80,18 @@ const searchedProduct=products.filter(item=>{
                    }}
                     class="text-md"/>
                     </button>
-                    <Toaster/>
+
                 </div>
               </div>
               <div class="mt-6 space-y-2 m-3 ">
-                <h2 class="text-lg md:text-xl sm:text-xl font-bold text-center"><Link to={`/products/${item.id}`}>{item.title}</Link></h2>
+                <h2 class="text-lg md:text-xl sm:text-xl font-bold hover:text-blue-500"><Link to={`/products/${item.title}`}>{item.title}</Link></h2>
+                <p className="bg-green-100 text-green-700 px-2 rounded-md w-fit">{item.discount}% Off</p>
+
                 <div class=" flex justify-between sm:items-center">
-                  <p class="text-lg  text-red-400">Rs {item.price}</p>
+                  <span className="flex items-center gap-2">
+                  <p className="text-red-400 text-lg font-medium">Rs.{item.price - (item.price * item.discount)/100}</p>
+                  <p class="text-md text-gray-700 line-through mt-1">Rs {item.price}</p>
+                  </span>
                   <button
                     onClick={() => addToCart(item)}
                     class="border-none font-medium rounded-lg md:px-3 sm:py-2 md:py-2 sm:px-3 px-2 py-1 text-sm text-white bg-red-600"

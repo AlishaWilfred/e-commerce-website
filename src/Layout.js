@@ -69,7 +69,10 @@ toast.success("item added to the wishlist!")
       removeCartItem={removeCartItem} decreaseCartitem={decreaseCartitem} addToWishlist={addToWishlist}
       wishlist={wishlist} setWishlist={setWishlist} like={like} Toaster={Toaster}
       />
-      <Toaster/>
+      <Toaster
+      position='top-right'
+      duration="2000"
+      />
       
         <Footer/>
       </Router>
