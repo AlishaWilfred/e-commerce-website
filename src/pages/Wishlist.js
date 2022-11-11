@@ -6,7 +6,7 @@ import { AiOutlineArrowLeft, AiOutlineClose } from "react-icons/ai";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Wishlist({ wishlist, addToCart, setWishlist }) {
-  const [wishlistItemLayout, setWishlistItemLayout] = useState(1);
+  const [wishlistItemLayout, setWishlistItemLayout] = useState(0);
   const [openModal, setOpenModal] = useState("");
 
   const removeWishlist = (product) => {
@@ -49,8 +49,8 @@ export default function Wishlist({ wishlist, addToCart, setWishlist }) {
           <>
             <div className="flex items-center m-10  flex-col">
               <div class="tracking-wider flex justify-between p-2 w-[65%] ">
-                <span className="flex justify-between items-center">
-                  <h1 class=" sm:text-3xl text-2xl first-letter:uppercase font-semibold relative  ">
+                <span className="flex justify-between  items-center">
+                  <h1 class=" sm:text-3xl text-2xl ml-10 sm:ml-0 first-letter:uppercase font-semibold relative  ">
                     Wishlist
                   </h1>
                   <span className="hidden sm:flex items-center gap-3 p-2 absolute right-60 justify-end">
@@ -84,7 +84,7 @@ export default function Wishlist({ wishlist, addToCart, setWishlist }) {
 
               {wishlistItemLayout === 1 ? (
                 <>
-                  <div className="hidden sm:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-6">
+                  <div className="hidden sm:grid  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-6">
                     {wishlist.map((item) => (
                       <>
                         <div className="border rounded-md">
@@ -115,12 +115,12 @@ export default function Wishlist({ wishlist, addToCart, setWishlist }) {
                             )}
                           </div>
                           <div className="">
-                            <div className="flex justify-center items-center p-2 mt-6">
+                            <div className="flex ml-10 p-2 mt-10 self-center">
                               <img
-                                src={item.image}
+                                src={item.image[0]}
                                 alt=""
-                                width="200px"
-                                className=""
+                            
+                                className="w-[200px] h-[200px]"
                               ></img>
                             </div>
                             <div className="flex flex-col justify-center p-3 mt-3 space-y-2">
@@ -150,7 +150,7 @@ export default function Wishlist({ wishlist, addToCart, setWishlist }) {
                       <div>
                         <img
                           alt=""
-                          src={item.image}
+                          src={item.image[0]}
                           width="200px"
                           className="rounded-md"
                         ></img>
@@ -210,7 +210,7 @@ export default function Wishlist({ wishlist, addToCart, setWishlist }) {
                         <img
                           alt=""
                           class="sm:rounded-xl  sm:w-[200px] sm:ml-8 object-cover lg:ml-0 xl:ml-8  w-[150px] h-[170px]  shadow-sm "
-                          src={item.image}
+                          src={item.image[0]}
                           width="200px"
                         ></img>
                         <div class="sm:space-y-3 space-y-2 flex flex-col py-2 ml-4  ">
@@ -218,13 +218,16 @@ export default function Wishlist({ wishlist, addToCart, setWishlist }) {
                             {item.title}
                           </h1>
                           <div class="flex justify-between sm:flex-row xl:flex-row flex-col lg:flex-col ">
-                            <p class="text-red-600 font-semibold space-y-2 sm:m-2">
-                              <span>Rs.{item.price}</span>{" "}
+                            <p class="text-red-600 flex gap-3 items-center ">
+                              <span className="font-medium">Rs.{(item.price-(item.price*item.discount)/100)}</span>{" "}
+                              <span className="line-through text-gray-400 text-sm">Rs.{item.price}</span>{" "}
+
+
                             </p>
-                            <p class="font-semibold sm:m-2">
-                              Category:{" "}
-                              <span class="first-letter:uppercase bg-red-300 sm:px-2 px-1 rounded-md sm:py-1">
-                                {item.category}
+                            <p class="font-semibold mt-2">
+                             
+                              <span class=" bg-green-200 text-green-700 sm:px-2 px-1 rounded-md sm:py-1">
+                                {item.discount}% Off
                               </span>
                             </p>
                           </div>

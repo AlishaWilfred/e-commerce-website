@@ -32,7 +32,7 @@ export default function Header({ cartItem, wishlist }) {
       <div class="sm:m-16 m-1 ">
         <ul class=
  
-         {showBars?(" bg-white transition ease-in-out text-xl font-semibold scale-120 duration-300 text-red-600 flex space-x-8 justify-center w-full mr-52 right-0 left-0 absolute top-20 p-7   items-center ")
+         {showBars?(" bg-white transition  ease-out  text-xl font-semibold scale-120 duration-3000 text-red-600 flex flex-col shadow-md  w-[180px] right-0 h-[600px] items-center space-y-6 absolute top-20 p-4  ")
          :(" hidden sm:flex  space-x-2 items-center justify-around text-md mt-6  sm:space-x-9  sm:text-lg xl:text-xl font-semibold ")}> 
        
   
@@ -49,7 +49,7 @@ export default function Header({ cartItem, wishlist }) {
               to="/products"
               class="focus:bg-white focus:text-red-600 px-1 py-1 rounded-lg"
             >
-              Products
+              Shop
             </Link>
           </li>
        
@@ -59,7 +59,7 @@ export default function Header({ cartItem, wishlist }) {
               class="  px-1 py-1 rounded-3xl"
             >
               <FaHeart/>
-              <span class="absolute top-2 -right-4 bg-white font-bold text-red-600 px-2 text-sm rounded-2xl">
+              <span class="absolute sm:top-2 top-3 -right-4 bg-white font-bold text-red-600 px-2 text-sm rounded-2xl">
                 {wishlist.length}
               </span>
             </Link>
@@ -73,7 +73,7 @@ export default function Header({ cartItem, wishlist }) {
               class=" px-1 py-1 rounded-3xl "
             >
               <FaShoppingCart/>
-              <span class="absolute top-2  -right-4 bg-white font-bold text-red-600 px-2 text-sm rounded-2xl">
+              <span class="absolute sm:top-2 top-3 -right-4 bg-white font-bold text-red-600 px-2 text-sm rounded-2xl">
                 {cartItem.length}
               </span>
             </Link>

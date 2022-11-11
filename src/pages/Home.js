@@ -150,36 +150,36 @@ export default function Home({ products, addToCart }) {
                   <SwiperSlide>
                     <div className=" sm:w-[200px] sm:h-[200px] mt-10">
                       <img
-                        src={s.image}
+                        src={s.image[0]}
                         className="object-cover max-w-[100%] h-[100%] shadow-md "
                       ></img>
-                      <div className="sm:px-2 sm:py-1 space-y-2">
+                      <div className="sm:px-2 sm:py-1 space-y-2 flex">
                         <div className="mt-3 h-10">
                           <Link to={`/products/${s.title}`}>
-                          <p className="sm:text-md text-sm font-medium hover:text-blue-500  ">
+                          <p className="sm:text-md text-sm xl:text-base font-medium hover:text-blue-500  ">
                             {s.title}
                           </p>
                           </Link>
                         </div>
-                        <span className="mt-1 text-sm bg-green-100 text-green-600 px-2 rounded-md">
+                      
+                        </div>
+                        <span className="mt-1  text-xs  sm:text-sm bg-green-100 text-green-600 sm:px-2 px-1 rounded-md">
                           {s.discount}% Off
                         </span>
-
-                        <div className="sm:flex sm:gap-3 sm:flex-row sm:items-center md:mr-0 flex items-center mr-14 flex-start flex-col">
-                          <span className="text-red-600 text-md ">
+                        <div className="sm:flex sm:gap-3 gap-2 md:px-2 flex-row sm:items-center  md:mr-0 flex items-center sm:mr-14 flex-start ">
+                          <span className="text-red-600 sm:text-md xl:text-xl text-sm ">
                             Rs.{s.price - (s.price * s.discount) / 100}
                           </span>
-                          <span className="line-through text-md text-gray-700">
+                          <span className="line-through sm:text-md text-xs xl:text-lg text-gray-500">
                             Rs. {s.price}
                           </span>
                         </div>
                         <button
                           onClick={() => addToCart(s)}
-                          class="sm:text-lg text-sm font-medium  text-red-600 hover:font-semibold hover:text-red-800 cursor-pointer"
+                          class="xl:text-lg  md:text-md text-sm font-medium md:px-2  text-red-600 hover:font-semibold hover:text-red-800 cursor-pointer"
                         >
                           Add to Cart
                         </button>
-                      </div>
                     </div>
                   </SwiperSlide>
                 </div>

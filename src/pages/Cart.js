@@ -42,15 +42,15 @@ const url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRouRrngoGJet6up
             return(
                 <div class="flex justify-around border relative w-fit lg:w-full sm:m-6 m-2 lg:m-0 flex-1">
                  
-                   <img class="p-4 md:p-6 " src={item.image} width="200px"></img>
+                   <img class="p-4 md:p-6 " src={item.image[0]} width="200px"></img>
                    <div class="mt-12 flex-1 sm:ml-44">
-                    <h1 class="textl-lg sm:text-2xl font-semibold">{item.title}</h1>
-                    <div class="flex mt-12 text-md sm:space-x-6 sm:text-lg  ">
+                    <h1 class="textl-lg lg:text-2xl font-semibold">{item.title}</h1>
+                    <div class="flex mt-12 text-sm sm:space-x-6 space-x-4 sm:text-lg  ">
                         <button onClick={()=>decreaseCartitem(item)}
-                        class="text-lg px-4 py-2 rounded-xl hover:bg-red-600 hover:text-white">-</button>
-                    <p class="text-lg px-2 py-2 ">{item.quantity}</p>
+                        class="xl:text-lg xl:px-4 xl:py-2 px-2  rounded-full sm:rounded-xl hover:bg-red-600 hover:text-white">-</button>
+                    <p class="xl:text-lg xl:px-2 xl:py-2 ">{item.quantity}</p>
                     <button onClick={()=>addToCart(item)}
-                    class="text-lg px-4 py-2  rounded-xl hover:bg-green-600 hover:text-white">+</button>
+                    class="xl:text-lg xl:px-4 xl:py-2 px-2 rounded-full sm:rounded-xl hover:bg-green-600 hover:text-white">+</button>
 
                     </div>
                     </div>
